@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="en">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Merch</a></li>
+        </ul>
+    </nav>
+
+    <header>
+
+        <video autoplay muted loop id="background-video">
+            <source src="{% static 'assets/img/background.webm' %}" type="video/webm">
+        </video>
+
+        {% block header %}  {% endblock %}
+    </header>
+
+    <main>
+        {% block main %} {% endblock %}
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>
