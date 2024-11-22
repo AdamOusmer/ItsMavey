@@ -14,14 +14,54 @@
 </head>
 <body>
 
+
+    <div id="menu">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="label-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </div>
     <nav>
+
+        <div class="header">
+            <pre>Navigation</pre>
+        </div>
+
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Games</a></li>
             <li><a href="#">Merch</a></li>
         </ul>
+
+        <div id="socials-buttons">
+            <a href="https://discord.gg/SZ2remwSDv" target="_blank"><img
+                    src=" {% static '/assets/img/discord.png' %}"
+                    alt=""
+                    draggable="false"
+            >
+            </a>
+            <a href="https://twitch.tv/itsmavey" target="_blank"><img
+                    src=" {% static '/assets/img/twitch.png' %}"
+                    alt=""
+                    draggable="false"
+            >
+            </a>
+
+            <a href="https://www.tiktok.com/@itsmavey" target="_blank"><img
+                    src=" {% static '/assets/img/tiktok.png' %}"
+                    alt=""
+                    draggable="false"
+            >
+            </a>
+
+        </div>
     </nav>
+
+
+
 
     <header>
 
@@ -40,5 +80,8 @@
 
     </footer>
 
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

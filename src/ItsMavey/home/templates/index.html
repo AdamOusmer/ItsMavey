@@ -13,21 +13,36 @@
 
     <h1>ItsMavey</h1>
 
-    <div class="buttons">
-        <a class="discord" href="https://discord.gg/SZ2remwSDv" target="_blank"><img
-                src=" {% static 'home/assets/discord.png' %}"
-                alt="">
-        </a>
-        <a class="twitch" href="https://twitch.tv/itsmavey" target="_blank"><img
-                src=" {% static 'home/assets/twitch.png' %}"
-                alt="">
-        </a>
+    {% if stream_status == "true" %}
+        <!-- <p>Live Now!</p> -->
 
-        <a class="tiktok" href="https://www.tiktok.com/@itsmavey" target="_blank"><img
-                src=" {% static 'home/assets/tiktok.png' %}"
-                alt="">
-        </a>
+    {% else %}
 
+        <div id="offline">
+            <div class="button">
+                <a href="https://twitch.tv/itsmavey" target="_blank">Watch Live
+                </a>
+                <img src="{% static 'assets/img/katana.png' %}" alt="" draggable="false">
+
+            </div>
+
+            <div class="button">
+                <a href="https://discord.gg/SZ2remwSDv" target="_blank">Join Discord
+                </a>
+                <img src="{% static 'assets/img/katana.png' %}" alt="" draggable="false">
+
+            </div>
+        </div>
+    {% endif %}
+
+    <div id="scrollArrow">
+        <div class="arrow-container">
+            <img src="{% static 'assets/img/arrow.png' %}" alt="" draggable="false">
+        </div>
+
+        <div id="text-container-scrollArrow">
+
+        </div>
     </div>
 
 {% endblock %}
@@ -35,6 +50,23 @@
 {% block main %}
 
     <section class="about">
+
+        <div class="livePreview">
+            <div>
+
+                <h2>Live Now!</h2>
+                <p>Playing {% if game %}{{ game }}{% else %}a game{% endif %}</p>
+
+            </div>
+            <iframe
+                    src="https://player.twitch.tv/?channel=itsmavey&parent=127.0.0.1"
+                    height="720"
+                    width="1280"
+                    allowfullscreen>
+            </iframe>
+
+        </div>
+
         <h2>About</h2>
         <p>Hey, I'm Mavey! I'm a variety streamer on Twitch. I play a lot of different games, but I'm mostly known for
             my Minecraft content. I'm also a full-time student, so I stream when I can. I'm always looking for new games

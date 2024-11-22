@@ -13,12 +13,18 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
+
 load_dotenv()
 
 # Twitch API
 TWITCH_CLIENT_ID = os.getenv('TWITCH_CLIENT_ID')
-TWITCH_ACCESS_TOKEN = os.getenv('TWITCH_ACCESS_TOKEN')
-Streamer = os.getenv('TWITCH_STREAMER_NAME')
+TWITCH_CLIENT_SECRET = os.getenv('TWITCH_CLIENT_SECRET')
+TWITCH_STREAMER_NAME = os.getenv('TWITCH_STREAMER_NAME')
+
+# Fernet Key
+
+FERNET_KEY = os.getenv('FERNET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +37,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG').lower() == 'true'
 
 ALLOWED_HOSTS = []
 
@@ -45,8 +51,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'csp',
     'home',
 ]
+
+# Content Security Policy
+CSP_FRAME_ANCESTORS = [
+    "'self'",
+    "https://player.twitch.tv",
+    "http://127.0.0.1"
+]
+
+CSP_DEFAULT_SRC = ["'self'", "https://player.twitch.tv"]
+CSP_SCRIPT_SRC = ["'self'", "https://player.twitch.tv"]
+CSP_CONNECT_SRC = ["'self'", "https://*.twitch.tv"]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
