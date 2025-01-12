@@ -16,6 +16,94 @@ h1 {
     1px 1px 2px var(--primary);
 }
 
+header {
+    width: 100%;
+    overflow: hidden;
+
+}
+
+/* live preview */
+
+#liveLink {
+    margin-top: 5vh;
+
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 var(--primary);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+
+    padding: 20px 0;
+
+}
+
+#liveLink * {
+    transition: all 500ms ease-in-out;
+}
+
+#liveLink h2 {
+    text-align: center;
+    color: var(--primary);
+}
+
+#liveLink h2 em {
+    color: var(--primary);
+}
+
+#live {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    max-width: 700px;
+}
+
+#live iframe {
+    aspect-ratio: 16 / 9;
+    max-width: 90%;
+    height: auto;
+
+    border: none;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+
+
+    pointer-events: none;
+}
+
+#liveLink img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+
+    position:absolute;
+
+    top: 50%;
+    left: 0;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+#liveLink img:nth-child(2) {
+    left: 100%;
+    transform: translate(-50%, -50%) scaleX(-1);
+}
+
+#liveLink:hover img {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+#liveLink:hover img:nth-child(2) {
+    transform: translate(-50%, -50%) scaleX(-1) scale(1.1);
+}
 
 /* Offline Buttons */
 
@@ -133,7 +221,7 @@ h1 {
     color: #000;
     background: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px 0 var(--primary);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 

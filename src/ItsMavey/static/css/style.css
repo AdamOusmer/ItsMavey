@@ -29,6 +29,7 @@
     font-size: 20px;
     font-weight: 500;
 
+    letter-spacing: 0.05rem;
     color: var(--text);
 }
 
@@ -185,6 +186,112 @@ nav {
 nav.active {
     left: 0;
     border-radius: 0;
+}
+
+nav .header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 20px 0;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--text);
+}
+
+nav .header pre {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    margin-top: 25%;
+
+    gap: 3.5rem;
+}
+
+
+nav ul li {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 20px;
+
+    transition: all 800ms ease-in-out;
+    transition-delay: 200ms;
+
+}
+
+nav ul li:nth-child(1) {
+    transform: translateX(-50%);
+}
+
+nav ul li:nth-child(2) {
+    transform: translateX(-75%);
+}
+
+nav ul li:nth-child(3) {
+    transform: translateX(-100%);
+}
+
+nav ul li:nth-child(4) {
+    transform: translateX(-125%);
+}
+
+nav.active ul li {
+    transform: translateX(0);
+}
+
+nav ul li a {
+    position: relative;
+    display: inline-block;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    background-image: linear-gradient(
+            to right,
+            var(--accent),
+            var(--accent) 50%,
+            var(--text) 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: background-position 300ms ease-in-out;
+}
+
+nav ul li a:hover {
+    background-position: 0;
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    display: block;
+
+    height: 1px;
+    width: 0;
+
+    bottom: 0%;
+    left: 0;
+
+    background: var(--accent);
+    transition: all 500ms ease-in-out;
+}
+
+nav ul li a:hover:before {
+    width: 100%;
 }
 
 header {

@@ -98,6 +98,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'ItsMavey.wsgi.application'
 
 
@@ -150,6 +152,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",  # Path to the global static directory
+    BASE_DIR / "home" / "static",  # Path to the app static directory
 ]
 
 # Default primary key field type

@@ -16,6 +16,24 @@
     {% if stream_status == "true" %}
         <!-- <p>Live Now!</p> -->
 
+        <div id="liveLink">
+            <a href="https://twitch.tv/itsmavey">
+                <div id="live">
+
+                    <h2><em>ItsMavey</em> is live now!</h2>
+                    <iframe
+                            src="https://player.twitch.tv/?channel=itsmavey&parent=127.0.0.1"
+                            height="720"
+                            width="1280"
+                            allowfullscreen>
+                    </iframe>
+
+                </div>
+            </a>
+            <img src="{% static 'assets/img/katana.png' %}" alt="" draggable="false">
+            <img src="{% static 'assets/img/katana.png' %}" alt="" draggable="false">
+        </div>
+
     {% else %}
 
         <div id="offline">
@@ -39,10 +57,6 @@
         <div class="arrow-container">
             <img src="{% static 'assets/img/arrow.png' %}" alt="" draggable="false">
         </div>
-
-        <div id="text-container-scrollArrow">
-
-        </div>
     </div>
 
 {% endblock %}
@@ -50,22 +64,6 @@
 {% block main %}
 
     <section class="about">
-
-        <div class="livePreview">
-            <div>
-
-                <h2>Live Now!</h2>
-                <p>Playing {% if game %}{{ game }}{% else %}a game{% endif %}</p>
-
-            </div>
-            <iframe
-                    src="https://player.twitch.tv/?channel=itsmavey&parent=127.0.0.1"
-                    height="720"
-                    width="1280"
-                    allowfullscreen>
-            </iframe>
-
-        </div>
 
         <h2>About</h2>
         <p>Hey, I'm Mavey! I'm a variety streamer on Twitch. I play a lot of different games, but I'm mostly known for
@@ -97,4 +95,7 @@
         <p>Coming soon!</p>
     </section>
 
+{% endblock %}
+
+{% block extra_js %}
 {% endblock %}
