@@ -5,6 +5,7 @@
 
 {% block extra_head %}
 
+    <link rel="stylesheet" href="{% static 'home/css/header.css' %}">
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
 
 {% endblock %}
@@ -63,12 +64,32 @@
 
 {% block main %}
 
-    <section class="about">
+    <section id="about">
 
-        <h2>About</h2>
-        <p>Hey, I'm Mavey! I'm a variety streamer on Twitch. I play a lot of different games, but I'm mostly known for
-            my Minecraft content. I'm also a full-time student, so I stream when I can. I'm always looking for new games
-            to play and new people to meet, so feel free to stop by and say hi!</p>
+        <h2>About Mavey</h2>
+
+        <spline-viewer url="https://prod.spline.design/IdZ2EyaPP3I7arSb/scene.splinecode"></spline-viewer>
+
+        <div class="container">
+            <div class="slogan-container">
+                <h3>I ain't going bald!</h3>
+                <h3>#1 Baguette on Twitch</h3>
+
+                <div class="button">
+                    <a href="https://twitch.tv/itsmavey" target="_blank">Watch Live
+                    </a>
+                    <img src="{% static 'assets/img/katana.png' %}" alt="" draggable="false">
+
+                </div>
+            </div>
+            <pre>Hi, I am Mavey,
+
+I am a software engineering student that just share his passions on live.
+
+I mostly play games on stream, but I also code and listen to music.
+            </pre>
+        </div>
+
     </section>
 
     <section class="games">
@@ -98,4 +119,6 @@
 {% endblock %}
 
 {% block extra_js %}
+    <script src="{% static 'home/js/main.js' %}"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
 {% endblock %}

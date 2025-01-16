@@ -13,6 +13,8 @@
     --accent: #CB9D67;
     --accent2: #FB9757;
 
+    --background: #1A1A1A;
+
     --text: #F4F4F4;
 
     --nav-width: clamp(200px, 80vw, 500px);
@@ -35,6 +37,13 @@
 
 body {
     background: var(--primary);
+}
+
+main {
+    background: linear-gradient(to bottom, var(--primary) 1vh, var(--background) 97vh);}
+
+footer {
+    background: var(--background);
 }
 
 /* remove default styles */
@@ -170,7 +179,7 @@ nav {
     top: 0;
     left: var(--nav-left);
 
-    background: rgba(24, 52, 54, 0.55);
+    background: linear-gradient(to top, #1A1A1ABB -10vh, #071A1FBB 100vh);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 
@@ -314,6 +323,19 @@ header {
     object-fit: cover;
     object-position: center;
 
+}
+
+#background-video::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; /* Adjust height for the blur zone */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    backdrop-filter: blur(10px); /* Adjust blur strength */
+    z-index: 10; /* Ensure it sits above the content */
+    pointer-events: none; /* Make sure it's not interactive */
 }
 
 #socials-buttons {
